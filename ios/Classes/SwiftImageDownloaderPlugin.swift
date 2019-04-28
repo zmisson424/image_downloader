@@ -130,7 +130,7 @@ public class SwiftImageDownloaderPlugin: NSObject, FlutterPlugin {
 //        task.resume()
 //    }
 
-    private func saveImage(_ data: Data, result: @escaping FlutterResult) {
+    fileprivate func saveImage(_ data: Data, result: @escaping FlutterResult) {
         guard let image = UIImage(data: data) else {
             result(FlutterError(code: "data_error", message: "Couldn't convert to UIImage.", details: nil))
             return
@@ -189,7 +189,7 @@ public class SwiftImageDownloaderPlugin: NSObject, FlutterPlugin {
         }
     }
 
-    private func saveGif(data: Data, name: String?, result: @escaping FlutterResult) {
+    fileprivate func saveGif(data: Data, name: String?, result: @escaping FlutterResult) {
         DispatchQueue.main.async {
             _ = UIImageView(image: UIImage(data: data))
         }
@@ -215,7 +215,7 @@ public class SwiftImageDownloaderPlugin: NSObject, FlutterPlugin {
         }
     }
 
-    private func saveVideo(data: Data, name: String?, result: @escaping FlutterResult) {
+    fileprivate func saveVideo(data: Data, name: String?, result: @escaping FlutterResult) {
         guard let videoUrl = createTemporaryFile(fileName: name, ext: "mp4") else {
             return
         }
